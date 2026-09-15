@@ -2,6 +2,7 @@ import { ContainerComponent } from '../../shared/component-kit';
 
 import HeroSection from './sections/HeroSection';
 import FeaturedToolsSection from './sections/FeaturedToolsSection';
+import WhySection from './sections/WhySection';
 
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -15,6 +16,10 @@ export default class HomePage extends ContainerComponent {
   }
 
   render() {
-    this.setChildren([new HeroSection(), new FeaturedToolsSection()]);
+    this.setChildren([
+      new HeroSection(),
+      new FeaturedToolsSection(),
+      new WhySection(),
+    ]);
   }
 }
