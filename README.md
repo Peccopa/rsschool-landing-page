@@ -1,270 +1,387 @@
-<!-- # Starter Pack JS -->
+# Landing Page
 
-<p align="center">
-  <img src="./js-starter-pack.webp" width="800" alt="Starter Pack JS" />
-</p>
+Авторский проект для RS School Fullstack Engineering Course.
 
-Шаблон для создания frontend-проектов на JavaScript.
+## 1. Концепция
 
-Включает базовую настройку инструментов разработки:
+Сайт-презентация и каталог собственных инструментов для frontend-разработки.
 
-- Vite
-- ESLint
-- Prettier
-- EditorConfig
-- Vitest
-- Husky
-- lint-staged
-- Commitlint
-- GitHub Actions
-- GitHub Templates
-- Dependabot
-- Validate Branch Name
+Проект объединяет готовые, разрабатываемые и планируемые инструменты в единую коллекцию.
+
+Основная идея:
+
+> Build once. Reuse everywhere.
+
+Название проекта будет определено отдельно.
 
 ---
 
-# Стек
+## 2. Цели
 
+### Учебные
+
+- выполнить требования Landing Page Part 1;
+- выполнить требования Landing Page Part 2;
+- закрепить адаптивную вёрстку;
+- реализовать работу с DOM;
+- реализовать интерактивность на чистом JavaScript;
+- использовать `localStorage`;
+- реализовать светлую и тёмную темы.
+
+### Практические
+
+- создать реальную презентацию собственных инструментов;
+- развивать собственный `ui-kit` на базе `component-kit`;
+- проверить совместную работу собственных инструментов;
+- получить основу для дальнейшего развития проекта.
+
+---
+
+## 3. Технологии
+
+- HTML
+- CSS / SCSS
 - JavaScript
 - Vite
+- Vitest
 - ESLint
 - Prettier
-- Vitest
+- Git / GitHub
+
+Собственные инструменты:
+
+- `component-kit`
+- `state-kit`
+- `router-kit`
+- `sound-kit`
+- `i18n-kit`
+- `js-starter-pack`
+
+При необходимости:
+
+- `ts-starter-pack`
+- `ui-kit`
+- `style-kit`
+- `theme-kit`
 
 ---
 
-# Быстрый старт
+## 4. Страницы
 
-## Установка зависимостей
+### Home
 
-```
-npm install
-```
+Главная страница проекта.
 
-## Запуск проекта
+Предварительная структура:
 
-```
-npm run dev
-```
+1. Hero
+2. Featured Tools
+3. Advantages / Philosophy
+4. About Author
+5. Roadmap
+6. CTA
 
-## Production-сборка
+### Catalog
 
-```
-npm run build
-```
+Каталог инструментов.
 
-## Просмотр сборки
+Основные возможности:
 
-```
-npm run preview
-```
-
-## Проверка кода
-
-ESLint:
-
-```
-npm run lint
-```
-
-Форматирование:
-
-```
-npm run format
-```
-
-Тесты:
-
-```
-npm run test
-```
+- категории;
+- карточки инструментов;
+- фильтрация;
+- дополнительные карточки;
+- открытие подробной информации;
+- выбор параметров инструмента;
+- модальное окно.
 
 ---
 
-### Названия веток
+## 5. Инструменты
 
-Используется `validate-branch-name`.
+### Available
 
-Формат:
+| Tool            | Category | Status    |
+| --------------- | -------- | --------- |
+| Component Kit   | Core     | Available |
+| State Kit       | Core     | Available |
+| Router Kit      | Core     | Available |
+| Sound Kit       | Utility  | Available |
+| i18n Kit        | Utility  | Available |
+| JS Starter Pack | Starter  | Available |
+| TS Starter Pack | Starter  | Available |
 
-`<type>/<description>`
-`<type>/<issue-number>-<description>`
+### In development
 
-Примеры:
+| Tool      | Category     | Status      |
+| --------- | ------------ | ----------- |
+| UI Kit    | UI           | Development |
+| Style Kit | UI / Styling | Development |
+| Theme Kit | UI / Styling | Development |
 
-feat/add-login-form
-experiment/state-kit
-chore/update-eslint
+### Planned
 
-или
+Возможные будущие инструменты:
 
-`feat/117-add-login-form`
-`fix/225-fix-validation`
-`docs/228-update-readme`
+- Form Kit
+- HTTP / API Kit
+- Storage Kit
+- Validation Kit
+- Test Kit
+- Animation Kit
+- Utils Kit
+- Date Kit
+- Modal Kit
 
-Допустимые типы:
-
-`build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`, `experiment`
-
-Проверка выполняется автоматически перед `git push`.
-
----
-
-# Структура проекта
-
-```
-.
-├── public/
-│   ├── images/
-│   ├── favicon.ico
-│   ├── site.webmanifest
-│   └── robots.txt
-│
-├── .github/
-│   ├── workflows/
-│   └── dependabot.yml
-│
-├── .husky/
-│
-├── index.html
-├── package.json
-└── README.md
-```
+Список не является обязательством к реализации.
 
 ---
 
-## Архитектура
+## 6. UI Kit
 
-Проект использует **Feature-Sliced Design (FSD)**.
+`ui-kit` создаётся непосредственно в процессе выполнения проекта.
 
-Основная структура:
+Базой служит `component-kit`.
+
+Предварительные компоненты:
+
+- Navigation
+- Slider
+- Card
+- Modal
+- Theme Switcher
+- Search
+- Filter
+- Select
+- Pagination
+- Tabs
+
+Компоненты добавляются по мере возникновения реальной необходимости.
+
+Не создавать компоненты заранее без практического применения.
+
+---
+
+## 7. Theme System
+
+Необходимо реализовать:
+
+- light theme;
+- dark theme;
+- переключение темы;
+- сохранение выбора в `localStorage`;
+- восстановление темы после перезагрузки;
+- сохранение темы при переходе между страницами.
+
+`theme-kit` будет использоваться как экспериментальная основа для этой функциональности.
+
+---
+
+## 8. Catalog
+
+Каталог должен содержать минимум три категории.
+
+Предварительные категории:
+
+- Core
+- UI
+- Tools
+
+Карточка инструмента содержит:
+
+- обложку;
+- название;
+- категорию;
+- статус;
+- краткое описание;
+- дополнительную информацию;
+- ссылку на репозиторий / npm при наличии.
+
+В одной категории должно быть не менее восьми карточек.
+
+Для будущих инструментов используется явный статус:
+
+- Available
+- Development
+- Planned
+
+---
+
+## 9. Part 1 — Layout
+
+### Pages
+
+- [ ] Home
+- [ ] Catalog
+- [ ] Общий Header
+- [ ] Общий Footer
+- [ ] Разные URL
+- [ ] Favicon
+
+### Header
+
+- [ ] Logo / project name
+- [ ] Navigation
+- [ ] Theme switcher
+- [ ] Burger button ≤768px
+
+### Home
+
+- [ ] Hero
+- [ ] CTA
+- [ ] Slider ≥3 items
+- [ ] Section 3
+- [ ] Section 4
+
+### Catalog
+
+- [ ] ≥3 categories
+- [ ] Category controls
+- [ ] ≥8 cards in one category
+- [ ] Show more / pagination
+- [ ] Card image
+- [ ] Card title
+- [ ] Card description
+- [ ] Additional card information
+
+### Footer
+
+- [ ] Contact information
+- [ ] External links
+- [ ] GitHub
+- [ ] RS School link
+- [ ] Copyright
+
+### Responsive
+
+- [ ] 1440px
+- [ ] 768px
+- [ ] 380px
+- [ ] Intermediate widths
+- [ ] No horizontal overflow
+
+### Theme
+
+- [ ] Light
+- [ ] Dark
+- [ ] localStorage
+- [ ] Restore after reload
+- [ ] Preserve between pages
+
+---
+
+## 10. Part 2 — Functionality
+
+- [ ] Burger menu
+- [ ] Slider / carousel
+- [ ] Category switching
+- [ ] Additional cards
+- [ ] Card modal
+- [ ] Card parameters
+- [ ] Dynamic modal information
+- [ ] No page reload for interactions
+
+---
+
+## 11. Development Strategy
+
+Работа выполняется итеративно:
+
+1. Project structure
+2. Content and data
+3. Base layout
+4. Responsive layout
+5. Theme system
+6. UI Kit components
+7. Part 1 functionality
+8. Part 2 functionality
+9. Testing
+10. Accessibility
+11. Final responsive check
+12. Deployment
+13. Cross-check preparation
+
+Не реализовывать будущую функциональность без необходимости.
+
+Сначала рабочая версия, затем улучшения.
+
+---
+
+## 12. Testing
+
+Проверить:
+
+- функциональность;
+- responsive layout;
+- обе темы;
+- сохранение темы;
+- навигацию;
+- интерактивные компоненты;
+- модальные окна;
+- отсутствие горизонтального скролла;
+- консоль браузера;
+- тесты собственных компонентов.
+
+---
+
+## 13. Deployment
+
+После каждой завершённой части:
+
+- актуализировать deployment;
+- проверить production build;
+- добавить ссылку на deployment в соответствующий Pull Request.
+
+---
+
+## 14. RS School Workflow
+
+Repository:
+
+`rsschool-landing-page`
+
+Branches:
 
 ```text
-src/
-├── app/
-├── pages/
-├── widgets/
-├── features/
-├── entities/
-├── shared/
-└── main.js
+main
+└── landing-page
+    └── landing-page-part-2
 ```
 
-`main.js` является точкой входа приложения.
+### Part 1
 
-Подробная памятка по FSD находится в [`docs/fsd/fsd.md`](docs/fsd/fsd.md).
+`landing-page` → `main`
 
----
+### Part 2
 
-# Перед началом нового проекта
+`landing-page-part-2` → `landing-page`
 
-После копирования шаблона необходимо заменить заглушки.
+Pull Requests не мержить.
 
-## HTML
-
-- [ ] Изменить title
-- [ ] Обновить meta description
-- [ ] Обновить автора проекта
-- [ ] Проверить язык страницы
-
-## Open Graph
-
-- [ ] Изменить og:title
-- [ ] Изменить og:description
-- [ ] Заменить og:image
-- [ ] Изменить og:url
-
-## Иконки
-
-- [ ] Сгенерировать новые favicon
-- [ ] Заменить:
-
-  - favicon.ico
-  - favicon-16x16.png
-  - favicon-32x32.png
-  - apple-touch-icon.png
-  - android-chrome-192x192.png
-  - android-chrome-512x512.png
-
-## PWA
-
-- [ ] Обновить site.webmanifest
-- [ ] Изменить:
-
-  - name
-  - short_name
-  - theme_color
-  - background_color
-
-## GitHub
-
-- [ ] Изменить описание репозитория
-- [ ] Обновить README
-- [ ] Проверить GitHub Actions
-- [ ] Проверить Dependabot
+История коммитов должна отражать реальный процесс разработки.
 
 ---
 
-# Git workflow
+## 15. Final Checklist
 
-Перед каждым коммитом через Husky и lint-staged выполняются:
+Перед сдачей проверить:
 
-- ESLint (`eslint --fix`)
-- Prettier (`prettier --write`)
-- Commitlint (проверка сообщения коммита)
-
-Используется соглашение **Conventional Commits**.
-
-### Примеры
-
-✅ Корректно:
-
-```text
-feat: add modal component
-fix: resolve race condition
-docs: update readme
-refactor: simplify state manager
-test: add unit tests
-chore: update dependencies
-ci: add github actions
-```
-
-❌ Некорректно:
-
-```text
-update
-fixed bug
-new feature
-changes
-```
-
----
-
-## Шаблоны GitHub
-
-В репозитории настроены шаблоны для стандартизации работы с GitHub:
-
-- **Issues** — шаблоны для ошибок, функций и других задач.
-- **Pull Requests** — шаблон описания изменений, тестирования и проверки перед слиянием.
-
-Шаблоны находятся в директории `.github/`. GitHub автоматически использует их при создании новых Issues и Pull Requests.
-
----
-
-# Команды разработки
-
-| Команда            | Назначение         |
-| ------------------ | ------------------ |
-| npm run dev        | запуск dev-сервера |
-| npm run build      | production-сборка  |
-| npm run preview    | просмотр сборки    |
-| npm run lint       | проверка ESLint    |
-| npm run format     | форматирование     |
-| npm run test       | запуск тестов      |
-| npm run test:watch | запуск тестов      |
-
----
-
-# Лицензия
-
-MIT
+- [ ] Part 1 requirements
+- [ ] Part 2 requirements
+- [ ] Responsive 1440 / 768 / 380
+- [ ] Light / Dark
+- [ ] localStorage
+- [ ] Navigation
+- [ ] Slider
+- [ ] Categories
+- [ ] Cards
+- [ ] Show more / pagination
+- [ ] Modal
+- [ ] Card parameters
+- [ ] Accessibility
+- [ ] Browser console
+- [ ] Tests
+- [ ] Build
+- [ ] Deployment
+- [ ] Pull Request
+- [ ] Cross-check checklist
