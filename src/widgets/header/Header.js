@@ -1,4 +1,4 @@
-import { ContainerComponent, TextComponent } from '../../shared/component-kit';
+import { ContainerComponent, LinkComponent } from '../../shared/component-kit';
 
 export default class Header extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -13,22 +13,19 @@ export default class Header extends ContainerComponent {
   }
 
   render() {
-    const logo = new TextComponent({
-      tag: 'a',
+    const logo = new LinkComponent({
       content: 'Dev Store',
-      attributes: { href: '/' },
+      href: '/',
     });
 
-    const homeLink = new TextComponent({
-      tag: 'a',
+    const homeLink = new LinkComponent({
       content: 'Home',
-      attributes: { href: '/' },
+      href: '/',
     });
 
-    const catalogLink = new TextComponent({
-      tag: 'a',
+    const catalogLink = new LinkComponent({
       content: 'Catalog',
-      attributes: { href: '/catalog' },
+      href: '/catalog',
     });
 
     const nav = new ContainerComponent({

@@ -23,6 +23,6 @@ export default class CatalogPage extends ContainerComponent {
       children: [title],
     });
 
-    this.appendChildren([main]);
+    this.setChildren([main]);
   }
 }
