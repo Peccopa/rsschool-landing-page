@@ -3,6 +3,7 @@ import { ContainerComponent } from '../../shared/component-kit';
 import HeroSection from './sections/HeroSection';
 import FeaturedToolsSection from './sections/FeaturedToolsSection';
 import WhySection from './sections/WhySection';
+import ToolsSliderSection from './sections/ToolsSliderSection';
 
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -20,6 +21,7 @@ export default class HomePage extends ContainerComponent {
       new HeroSection(),
       new FeaturedToolsSection(),
       new WhySection(),
+      new ToolsSliderSection(),
     ]);
   }
 }
