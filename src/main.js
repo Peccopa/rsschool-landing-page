@@ -3,6 +3,8 @@ import { Router } from './shared/router-kit';
 import App from './app/App';
 import HomePage from './pages/home/HomePage';
 import CatalogPage from './pages/catalog/CatalogPage';
+import Header from './widgets/header/Header';
+import Footer from './widgets/footer/Footer';
 
 const app = new App();
 app.hide(false);
@@ -34,11 +36,9 @@ router.subscribe(({ route }) => {
 router.start();
 
 function renderHome() {
-  const homePage = new HomePage();
-  app.setChildren(homePage);
+  app.setChildren([new Header(), new HomePage(), new Footer()]);
 }
 
 function renderCatalog() {
-  const catalogPage = new CatalogPage();
-  app.setChildren(catalogPage);
+  app.setChildren([new Header(), new CatalogPage(), new Footer()]);
 }
