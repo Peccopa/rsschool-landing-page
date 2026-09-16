@@ -1,3 +1,5 @@
+import styles from './FeaturedToolsSection.module.css';
+
 import {
   ContainerComponent,
   TextComponent,
@@ -10,7 +12,7 @@ export default class FeaturedToolsSection extends ContainerComponent {
     super({
       tag: 'section',
       id: 'featured-tools',
-      classes: 'featured-tools',
+      classes: styles['featured-tools'],
       ...rest,
     });
 
@@ -24,12 +26,12 @@ export default class FeaturedToolsSection extends ContainerComponent {
     });
 
     const cards = new ContainerComponent({
-      classes: 'featured-tools__list',
+      classes: styles['featured-tools__list'],
     });
 
     tools.forEach((tool) => {
       const card = new ContainerComponent({
-        classes: 'tool-card',
+        classes: styles['tool-card'],
         children: [
           new TextComponent({
             tag: 'h3',
