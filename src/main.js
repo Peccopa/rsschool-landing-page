@@ -1,3 +1,5 @@
+import './styles/main.css';
+
 import { Router } from './shared/router-kit';
 
 import App from './app/App';
