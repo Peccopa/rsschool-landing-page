@@ -1,3 +1,5 @@
+import styles from './Header.module.css';
+
 import { applyTheme, getTheme, setTheme } from '../../shared/theme';
 
 import {
@@ -12,7 +14,7 @@ export default class Header extends ContainerComponent {
     super({
       tag: 'header',
       id: 'header',
-      classes: 'header',
+      classes: styles.header,
       ...rest,
     });
 
@@ -48,7 +50,7 @@ export default class Header extends ContainerComponent {
 
     const nav = new ContainerComponent({
       tag: 'nav',
-      classes: 'header__nav',
+      classes: styles.header__nav,
       children: [homeLink, aboutLink, toolsLink, catalogLink],
     });
 
@@ -69,7 +71,7 @@ export default class Header extends ContainerComponent {
     });
 
     const actions = new ContainerComponent({
-      classes: 'header__actions',
+      classes: styles.header__actions,
       children: [themeButton],
     });
 

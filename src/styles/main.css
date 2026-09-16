@@ -53,7 +53,6 @@ img {
   overflow-x: hidden;
 }
 
-.header,
 .footer,
 .main,
 .home-page,
@@ -61,28 +60,11 @@ img {
   width: 100%;
 }
 
-.header,
 .footer,
 .main {
   max-width: 1440px;
   margin: 0 auto;
   padding: 24px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header__nav {
-  display: flex;
-  gap: 24px;
-}
-
-.header__actions {
-  display: flex;
-  align-items: center;
 }
 
 .home-page,
@@ -137,17 +119,6 @@ img {
 }
 
 @media (max-width: 600px) {
-  .header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .header__nav {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
   .home-page,
   .catalog-page {
     gap: 24px;
