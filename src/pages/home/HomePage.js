@@ -4,6 +4,7 @@ import HeroSection from './sections/HeroSection';
 import FeaturedToolsSection from './sections/FeaturedToolsSection';
 import WhySection from './sections/WhySection';
 import ToolsSliderSection from './sections/ToolsSliderSection';
+import AboutSection from './sections/AboutSection';
 
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -22,6 +23,7 @@ export default class HomePage extends ContainerComponent {
       new FeaturedToolsSection(),
       new WhySection(),
       new ToolsSliderSection(),
+      new AboutSection(),
     ]);
   }
 }
