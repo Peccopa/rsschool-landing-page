@@ -2,6 +2,7 @@ import { ContainerComponent } from '../../shared/component-kit';
 
 import CatalogHeaderSection from './sections/CatalogHeaderSection';
 import CatalogCategoriesSection from './sections/CatalogCategoriesSection';
+import CatalogToolsSection from './sections/CatalogToolsSection';
 
 export default class CatalogPage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -15,10 +16,20 @@ export default class CatalogPage extends ContainerComponent {
   }
 
   render() {
+    const header = new CatalogHeaderSection();
+
+    const toolsSection = new CatalogToolsSection();
+
+    const categoriesSection = new CatalogCategoriesSection({
+      onCategoryChange: (category) => {
+        toolsSection.render(category);
+      },
+    });
+
     const main = new ContainerComponent({
       tag: 'main',
       classes: 'main',
-      children: [new CatalogHeaderSection(), new CatalogCategoriesSection()],
+      children: [header, categoriesSection, toolsSection],
     });
 
     this.setChildren([main]);

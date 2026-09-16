@@ -6,13 +6,15 @@ import {
 import { categories } from '../../../entities/tool/model/tools';
 
 export default class CatalogCategoriesSection extends ContainerComponent {
-  constructor({ ...rest } = {}) {
+  constructor({ onCategoryChange, ...rest } = {}) {
     super({
       tag: 'section',
       id: 'catalog-categories',
       classes: 'catalog-categories',
       ...rest,
     });
+
+    this.onCategoryChange = onCategoryChange;
 
     this.render();
   }
@@ -22,6 +24,11 @@ export default class CatalogCategoriesSection extends ContainerComponent {
       (category) =>
         new ButtonComponent({
           content: category,
+          listeners: {
+            click: () => {
+              this.onCategoryChange?.(category);
+            },
+          },
         }),
     );
 
