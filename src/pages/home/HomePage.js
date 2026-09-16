@@ -5,6 +5,7 @@ import FeaturedToolsSection from './sections/FeaturedToolsSection';
 import WhySection from './sections/WhySection';
 import ToolsSliderSection from './sections/ToolsSliderSection';
 import AboutSection from './sections/AboutSection';
+import CtaSection from './sections/CtaSection';
 
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -24,6 +25,7 @@ export default class HomePage extends ContainerComponent {
       new WhySection(),
       new ToolsSliderSection(),
       new AboutSection(),
+      new CtaSection(),
     ]);
   }
 }
