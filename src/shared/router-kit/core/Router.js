@@ -67,7 +67,7 @@ export class Router {
     if (url.origin !== window.location.origin) return;
 
     const pathname = this.base
-      ? `${this.base}${url.pathname === '/' ? '' : url.pathname}`
+      ? `${this.base}${url.pathname === '/' ? '/' : url.pathname}`
       : url.pathname;
 
     history.pushState({}, '', `${pathname}${url.search}${url.hash}`);
@@ -121,6 +121,12 @@ export class Router {
     event.preventDefault();
 
     this.navigate(link.href);
+
+    if (url.hash) {
+      document.querySelector(url.hash)?.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   };
 
   getLocation() {

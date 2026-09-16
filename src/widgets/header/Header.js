@@ -33,6 +33,16 @@ export default class Header extends ContainerComponent {
       href: '/',
     });
 
+    const toolsLink = new LinkComponent({
+      content: 'Tools',
+      href: '/#featured-tools',
+    });
+
+    const aboutLink = new LinkComponent({
+      content: 'About',
+      href: '/#about',
+    });
+
     const catalogLink = new LinkComponent({
       content: 'Catalog',
       href: '/catalog',
@@ -41,7 +51,7 @@ export default class Header extends ContainerComponent {
     const nav = new ContainerComponent({
       tag: 'nav',
       classes: 'header__nav',
-      children: [homeLink, catalogLink],
+      children: [homeLink, aboutLink, toolsLink, catalogLink],
     });
 
     const themeButton = new ButtonComponent({

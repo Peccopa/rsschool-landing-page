@@ -7,6 +7,7 @@ import CatalogToolsSection from './sections/CatalogToolsSection';
 export default class CatalogPage extends ContainerComponent {
   constructor({ ...rest } = {}) {
     super({
+      tag: 'main',
       id: 'catalog-page',
       classes: 'catalog-page',
       ...rest,
