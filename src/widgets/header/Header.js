@@ -1,3 +1,5 @@
+import { applyTheme, getTheme, setTheme } from '../../shared/theme';
+
 import {
   ContainerComponent,
   LinkComponent,
@@ -17,6 +19,10 @@ export default class Header extends ContainerComponent {
   }
 
   render() {
+    const currentTheme = getTheme();
+
+    applyTheme(currentTheme);
+
     const logo = new LinkComponent({
       content: 'Dev Store',
       href: '/',
@@ -39,15 +45,16 @@ export default class Header extends ContainerComponent {
     });
 
     const themeButton = new ButtonComponent({
-      content: 'Dark mode',
+      content: currentTheme === 'dark' ? 'Light mode' : 'Dark mode',
       listeners: {
         click: () => {
-          document.documentElement.classList.toggle('dark-theme');
+          const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
+
+          setTheme(nextTheme);
+          applyTheme(nextTheme);
 
           themeButton.setContent(
-            document.documentElement.classList.contains('dark-theme')
-              ? 'Light mode'
-              : 'Dark mode',
+            nextTheme === 'dark' ? 'Light mode' : 'Dark mode',
           );
         },
       },
