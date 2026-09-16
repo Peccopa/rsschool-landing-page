@@ -4,7 +4,7 @@ import {
   ContainerComponent,
   TextComponent,
   LinkComponent,
-} from '../../../shared/component-kit';
+} from '../../../../shared/component-kit';
 
 export default class HeroSection extends ContainerComponent {
   constructor({ ...rest } = {}) {

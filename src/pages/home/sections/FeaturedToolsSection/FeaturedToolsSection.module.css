@@ -15,25 +15,62 @@
 }
 
 .tool-card {
+  display: flex;
   min-width: 0;
+  flex-direction: column;
   padding: 24px;
   border: 1px solid currentColor;
   border-radius: 8px;
   background: var(--surface);
   overflow-wrap: anywhere;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.tool-card h3 {
-  margin: 0 0 12px;
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.tool-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.tool-card__heading img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.tool-card__heading h3 {
+  margin: 0;
   font-size: 1.25rem;
 }
 
-.tool-card p {
-  margin: 0 0 16px;
+.tool-card img {
+  width: 28px;
+  height: 28px;
 }
 
-.tool-card p:last-child {
-  margin-bottom: 0;
+.tool-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.tool-card .description {
+  margin: 0 0 40px;
+}
+
+.github {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 @media (max-width: 900px) {

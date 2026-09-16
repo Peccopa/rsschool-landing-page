@@ -8,6 +8,9 @@ export const tools = [
     status: 'Available',
     description:
       'Reusable components and managers for building interfaces with vanilla JavaScript.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'component',
   },
   {
     id: 'state-kit',
@@ -16,6 +19,9 @@ export const tools = [
     status: 'Available',
     description:
       'Lightweight state management with reducers, middleware and subscriptions.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'state',
   },
   {
     id: 'router-kit',
@@ -23,6 +29,9 @@ export const tools = [
     category: 'Core',
     status: 'Available',
     description: 'Simple client-side routing for JavaScript applications.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'router',
   },
   {
     id: 'sound-kit',
@@ -30,6 +39,9 @@ export const tools = [
     category: 'Core',
     status: 'Available',
     description: 'Reusable sound and audio utilities for web applications.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'sound',
   },
   {
     id: 'i18n-kit',
@@ -37,6 +49,9 @@ export const tools = [
     category: 'Core',
     status: 'Available',
     description: 'Simple internationalization utilities for web projects.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'i18n',
   },
   {
     id: 'js-starter-pack',
@@ -44,6 +59,9 @@ export const tools = [
     category: 'Core',
     status: 'Available',
     description: 'A ready-to-use JavaScript project foundation.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'javascript',
   },
   {
     id: 'ts-starter-pack',
@@ -51,6 +69,9 @@ export const tools = [
     category: 'Core',
     status: 'Available',
     description: 'A ready-to-use TypeScript project foundation.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'typescript',
   },
   {
     id: 'ui-kit',
@@ -58,6 +79,9 @@ export const tools = [
     category: 'UI',
     status: 'In development',
     description: 'Reusable interface components for web projects.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'ui',
   },
   {
     id: 'style-kit',
@@ -65,5 +89,30 @@ export const tools = [
     category: 'Core',
     status: 'Planned',
     description: 'Reusable styling utilities for web projects.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'style',
+  },
+  {
+    id: 'modal-kit',
+    name: 'Modal Kit',
+    category: 'UI',
+    status: 'Planned',
+    description:
+      'Reusable modal, dialog and overlay components for web projects.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'modal',
+  },
+  {
+    id: 'format-kit',
+    name: 'Format Kit',
+    category: 'Utilities',
+    status: 'Planned',
+    description:
+      'Reusable utilities for formatting dates, numbers, strings and common data types.',
+    repository: 'https://github.com/Peccopa',
+    image: '/images/tools/dev-store.png',
+    icon: 'format',
   },
 ];

@@ -1,7 +1,7 @@
 import { ContainerComponent } from '../../shared/component-kit';
 
-import HeroSection from './sections/HeroSection';
-import FeaturedToolsSection from './sections/FeaturedToolsSection';
+import HeroSection from './sections/HeroSection/HeroSection';
+import FeaturedToolsSection from './sections/FeaturedToolsSection/FeaturedToolsSection';
 import WhySection from './sections/WhySection';
 import ToolsSliderSection from './sections/ToolsSliderSection';
 import AboutSection from './sections/AboutSection';
