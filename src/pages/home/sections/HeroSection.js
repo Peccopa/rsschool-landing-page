@@ -1,3 +1,5 @@
+import styles from './HeroSection.module.css';
+
 import {
   ContainerComponent,
   TextComponent,
@@ -9,7 +11,7 @@ export default class HeroSection extends ContainerComponent {
     super({
       tag: 'section',
       id: 'hero',
-      classes: 'hero',
+      classes: styles.hero,
       ...rest,
     });
 
@@ -23,11 +25,12 @@ export default class HeroSection extends ContainerComponent {
     });
 
     const description = new TextComponent({
-      content: 'A collection of reusable tools for modern web development.',
+      content:
+        'Dev Store is a collection of reusable JavaScript tools, components and project foundations for modern web development.',
     });
 
     const link = new LinkComponent({
-      content: 'Explore tools',
+      content: 'Explore the catalog',
       href: '/catalog',
     });
 

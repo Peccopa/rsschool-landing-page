@@ -9,7 +9,7 @@ export default class CatalogPage extends ContainerComponent {
     super({
       tag: 'main',
       id: 'catalog-page',
-      classes: 'catalog-page',
+      classes: ['main', 'catalog-page'],
       ...rest,
     });
 

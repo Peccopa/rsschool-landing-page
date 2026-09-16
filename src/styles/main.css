@@ -3,6 +3,7 @@
   --background: #ffffff;
   --text: #222222;
   --surface: #f5f5f5;
+  --accent: #7c3aed;
 }
 
 :root.dark-theme {
@@ -10,6 +11,7 @@
   --background: #181818;
   --text: #eeeeee;
   --surface: #242424;
+  --accent: #a78bfa;
 }
 
 * {

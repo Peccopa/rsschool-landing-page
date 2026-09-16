@@ -5,6 +5,7 @@ import {
   LinkComponent,
   ButtonComponent,
 } from '../../shared/component-kit';
+import Logo from '../logo/Logo';
 
 export default class Header extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -23,10 +24,7 @@ export default class Header extends ContainerComponent {
 
     applyTheme(currentTheme);
 
-    const logo = new LinkComponent({
-      content: 'Dev Store',
-      href: '/',
-    });
+    const logo = new Logo();
 
     const homeLink = new LinkComponent({
       content: 'Home',

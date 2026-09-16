@@ -12,7 +12,7 @@ export default class HomePage extends ContainerComponent {
     super({
       tag: 'main',
       id: 'home-page',
-      classes: 'home-page',
+      classes: ['main', 'home-page'],
       ...rest,
     });
 
