@@ -16,14 +16,17 @@ globalThis.addEventListener('load', () => {
   app.show(true, 500);
 });
 
-const router = new Router({
-  '/': {
-    name: 'home',
+const router = new Router(
+  {
+    '/': {
+      name: 'home',
+    },
+    '/catalog': {
+      name: 'catalog',
+    },
   },
-  '/catalog': {
-    name: 'catalog',
-  },
-});
+  '/rsschool-landing-page',
+);
 
 router.subscribe(({ route }) => {
   if (route?.name === 'home') {

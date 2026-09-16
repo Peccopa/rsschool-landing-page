@@ -5,8 +5,25 @@ export class Router {
   listeners = [];
   started = false;
 
-  constructor(routes) {
+  constructor(routes, base = '') {
     this.routes = routes;
+    this.base = base.replace(/\/$/, '');
+  }
+
+  getRoutePath(pathname) {
+    if (!this.base) {
+      return pathname;
+    }
+
+    if (pathname === this.base) {
+      return '/';
+    }
+
+    if (pathname.startsWith(`${this.base}/`)) {
+      return pathname.slice(this.base.length);
+    }
+
+    return undefined;
   }
 
   start() {
@@ -49,7 +66,11 @@ export class Router {
 
     if (url.origin !== window.location.origin) return;
 
-    history.pushState({}, '', url.href);
+    const pathname = this.base
+      ? `${this.base}${url.pathname === '/' ? '' : url.pathname}`
+      : url.pathname;
+
+    history.pushState({}, '', `${pathname}${url.search}${url.hash}`);
 
     this.notify(this.getState());
   }
@@ -115,7 +136,9 @@ export class Router {
   }
 
   getState() {
-    const match = this.getRoute(window.location.pathname);
+    const pathname = this.getRoutePath(window.location.pathname);
+
+    const match = pathname ? this.getRoute(pathname) : undefined;
 
     return {
       location: this.getLocation(),
