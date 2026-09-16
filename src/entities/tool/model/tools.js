@@ -1,3 +1,5 @@
+export const categories = ['All', 'Core', 'UI', 'Utilities'];
+
 export const tools = [
   {
     id: 'component-kit',
