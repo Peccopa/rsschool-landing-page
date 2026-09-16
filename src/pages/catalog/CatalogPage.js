@@ -1,4 +1,6 @@
-import { ContainerComponent, TextComponent } from '../../shared/component-kit';
+import { ContainerComponent } from '../../shared/component-kit';
+
+import CatalogHeaderSection from './sections/CatalogHeaderSection';
 
 export default class CatalogPage extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -12,15 +14,10 @@ export default class CatalogPage extends ContainerComponent {
   }
 
   render() {
-    const title = new TextComponent({
-      tag: 'h1',
-      content: 'Catalog',
-    });
-
     const main = new ContainerComponent({
       tag: 'main',
       classes: 'main',
-      children: [title],
+      children: [new CatalogHeaderSection()],
     });
 
     this.setChildren([main]);
