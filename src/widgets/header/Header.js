@@ -1,4 +1,8 @@
-import { ContainerComponent, LinkComponent } from '../../shared/component-kit';
+import {
+  ContainerComponent,
+  LinkComponent,
+  ButtonComponent,
+} from '../../shared/component-kit';
 
 export default class Header extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -34,6 +38,26 @@ export default class Header extends ContainerComponent {
       children: [homeLink, catalogLink],
     });
 
-    this.setChildren([logo, nav]);
+    const themeButton = new ButtonComponent({
+      content: 'Dark mode',
+      listeners: {
+        click: () => {
+          document.documentElement.classList.toggle('dark-theme');
+
+          themeButton.setContent(
+            document.documentElement.classList.contains('dark-theme')
+              ? 'Light mode'
+              : 'Dark mode',
+          );
+        },
+      },
+    });
+
+    const actions = new ContainerComponent({
+      classes: 'header__actions',
+      children: [themeButton],
+    });
+
+    this.setChildren([logo, nav, actions]);
   }
 }
