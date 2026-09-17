@@ -1,0 +1,40 @@
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.tool-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.tool-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 20px;
+}
+
+.tool-card__content h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.tool-card__content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tool-card__meta {
+  margin-top: auto !important;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}

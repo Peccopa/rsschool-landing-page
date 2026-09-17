@@ -3,4 +3,9 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.logo:hover {
+  color: var(--accent);
 }

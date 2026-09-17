@@ -1,20 +1,24 @@
 import {
   ContainerComponent,
-  TextComponent,
   ButtonComponent,
 } from '../../../shared/component-kit';
 
+import ToolCard from '../../../entities/tool/ui/ToolCard';
+
 import { tools } from '../../../entities/tool/model/tools';
+
+import styles from './CatalogToolsSection.module.css';
 
 export default class CatalogToolsSection extends ContainerComponent {
   currentLimit = 4;
+
   currentCategory = 'All';
 
   constructor({ ...rest } = {}) {
     super({
       tag: 'section',
       id: 'catalog-tools',
-      classes: 'catalog-tools',
+      classes: styles['catalog-tools'],
       ...rest,
     });
 
@@ -24,7 +28,6 @@ export default class CatalogToolsSection extends ContainerComponent {
   render(category = this.currentCategory) {
     this.currentCategory = category;
     this.currentLimit = 4;
-
     this.update();
   }
 
@@ -36,29 +39,17 @@ export default class CatalogToolsSection extends ContainerComponent {
 
     const visibleTools = filteredTools.slice(0, this.currentLimit);
 
-    const cards = visibleTools.map(
-      (tool) =>
-        new ContainerComponent({
-          classes: 'tool-card',
-          children: [
-            new TextComponent({
-              tag: 'h2',
-              content: tool.name,
-            }),
-            new TextComponent({
-              content: tool.description,
-            }),
-            new TextComponent({
-              content: `Category: ${tool.category}`,
-            }),
-            new TextComponent({
-              content: `Status: ${tool.status}`,
-            }),
-          ],
-        }),
-    );
+    const cards = new ContainerComponent({
+      classes: styles['catalog-tools__list'],
+      children: visibleTools.map(
+        (tool) =>
+          new ToolCard({
+            tool,
+          }),
+      ),
+    });
 
-    this.setChildren(cards);
+    this.setChildren([cards]);
 
     if (this.currentLimit < filteredTools.length) {
       this.addShowMoreButton();
@@ -68,6 +59,7 @@ export default class CatalogToolsSection extends ContainerComponent {
   addShowMoreButton() {
     const button = new ButtonComponent({
       content: 'Show More',
+      classes: styles['catalog-tools__show-more'],
       listeners: {
         click: () => {
           this.currentLimit += 4;

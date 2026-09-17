@@ -17,7 +17,7 @@ export default class CatalogPage extends ContainerComponent {
   }
 
   render() {
-    const header = new CatalogHeaderSection();
+    const headerSection = new CatalogHeaderSection();
 
     const toolsSection = new CatalogToolsSection();
 
@@ -27,12 +27,6 @@ export default class CatalogPage extends ContainerComponent {
       },
     });
 
-    const main = new ContainerComponent({
-      tag: 'main',
-      classes: 'main',
-      children: [header, categoriesSection, toolsSection],
-    });
-
-    this.setChildren([main]);
+    this.setChildren([headerSection, categoriesSection, toolsSection]);
   }
 }

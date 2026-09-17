@@ -5,6 +5,7 @@ import {
   TextComponent,
   LinkComponent,
 } from '../../shared/component-kit';
+import Logo from '../logo/Logo';
 
 export default class Footer extends ContainerComponent {
   constructor({ ...rest } = {}) {
@@ -22,10 +23,7 @@ export default class Footer extends ContainerComponent {
     const project = new ContainerComponent({
       classes: styles.footer__column,
       children: [
-        new TextComponent({
-          tag: 'h2',
-          content: '</> Dev Store',
-        }),
+        new Logo(),
         new TextComponent({
           content: 'Reusable tools for frontend development.',
         }),

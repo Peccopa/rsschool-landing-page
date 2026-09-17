@@ -1,0 +1,30 @@
+.catalog-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.catalog-tools__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.catalog-tools__show-more {
+  align-self: center;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin-top: 36px;
+}
+
+@media (max-width: 1100px) {
+  .catalog-tools__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-tools__list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -23,12 +23,10 @@
 .footer__column h2,
 .footer__column h3 {
   margin: 0 0 8px;
-  color: var(--accent);
 }
 
 .footer__column h2 {
   font-size: 1.5rem;
-  color: var(--accent);
 }
 
 .footer__column h3 {
@@ -46,9 +44,9 @@
   transition: color 0.2s ease;
 }
 
-.footer__column a:hover {
+/* .footer__column a:hover {
   color: var(--accent);
-}
+} */
 
 .footer__column a:focus-visible {
   outline: 2px solid var(--accent);

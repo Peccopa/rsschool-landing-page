@@ -5,12 +5,17 @@ import {
 
 import { categories } from '../../../entities/tool/model/tools';
 
+import styles from './CatalogCategoriesSection.module.css';
+
 export default class CatalogCategoriesSection extends ContainerComponent {
+  currentCategory = 'All';
+  buttons = [];
+
   constructor({ onCategoryChange, ...rest } = {}) {
     super({
       tag: 'section',
       id: 'catalog-categories',
-      classes: 'catalog-categories',
+      classes: styles['catalog-categories'],
       ...rest,
     });
 
@@ -20,18 +25,37 @@ export default class CatalogCategoriesSection extends ContainerComponent {
   }
 
   render() {
-    const buttons = categories.map(
-      (category) =>
-        new ButtonComponent({
-          content: category,
-          listeners: {
-            click: () => {
-              this.onCategoryChange?.(category);
-            },
+    this.buttons = categories.map((category) => {
+      const button = new ButtonComponent({
+        content: category,
+        listeners: {
+          click: () => {
+            this.setActiveCategory(category);
+            this.onCategoryChange?.(category);
           },
-        }),
-    );
+        },
+      });
 
-    this.setChildren(buttons);
+      if (category === this.currentCategory) {
+        button.setClasses(styles.active);
+      }
+
+      return button;
+    });
+
+    const controls = new ContainerComponent({
+      classes: styles['catalog-categories__controls'],
+      children: this.buttons,
+    });
+
+    this.setChildren([controls]);
+  }
+
+  setActiveCategory(category) {
+    this.currentCategory = category;
+
+    this.buttons.forEach((button, index) => {
+      button.toggleClasses(styles.active, categories[index] === category);
+    });
   }
 }
