@@ -1,7 +1,7 @@
 import {
   ContainerComponent,
   TextComponent,
-} from '../../../shared/component-kit';
+} from '../../../../shared/component-kit';
 
 export default class AboutSection extends ContainerComponent {
   constructor({ ...rest } = {}) {

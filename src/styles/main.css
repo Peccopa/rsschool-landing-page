@@ -4,6 +4,7 @@
   --text: #222222;
   --surface: #f5f5f5;
   --accent: #7c3aed;
+  /* --title: #3e3e3e; */
 }
 
 :root.dark-theme {
@@ -12,6 +13,7 @@
   --text: #eeeeee;
   --surface: #242424;
   --accent: #a78bfa;
+  /* --title: #dfbed5; */
 }
 
 * {
@@ -47,6 +49,10 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* h2 {
+  color: var(--title);
+} */
 
 .app {
   min-height: 100vh;

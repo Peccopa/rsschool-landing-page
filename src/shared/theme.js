@@ -1,7 +1,7 @@
 const THEME_KEY = 'dev-store-theme';
 
 export function getTheme() {
-  return localStorage.getItem(THEME_KEY) ?? 'light';
+  return localStorage.getItem(THEME_KEY) ?? 'dark';
 }
 
 export function setTheme(theme) {

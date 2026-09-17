@@ -9,7 +9,7 @@ export const tools = [
     description:
       'Reusable components and managers for building interfaces with vanilla JavaScript.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/component-kit.webp',
     icon: 'component',
   },
   {
@@ -20,7 +20,7 @@ export const tools = [
     description:
       'Lightweight state management with reducers, middleware and subscriptions.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/state-kit.webp',
     icon: 'state',
   },
   {
@@ -30,7 +30,7 @@ export const tools = [
     status: 'Available',
     description: 'Simple client-side routing for JavaScript applications.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/router-kit.webp',
     icon: 'router',
   },
   {
@@ -40,7 +40,7 @@ export const tools = [
     status: 'Available',
     description: 'Reusable sound and audio utilities for web applications.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'sound',
   },
   {
@@ -50,7 +50,7 @@ export const tools = [
     status: 'Available',
     description: 'Simple internationalization utilities for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'i18n',
   },
   {
@@ -60,7 +60,7 @@ export const tools = [
     status: 'Available',
     description: 'A ready-to-use JavaScript project foundation.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/js-starter-pack.webp',
     icon: 'javascript',
   },
   {
@@ -70,7 +70,7 @@ export const tools = [
     status: 'Available',
     description: 'A ready-to-use TypeScript project foundation.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/ts-starter-pack.webp',
     icon: 'typescript',
   },
   {
@@ -80,7 +80,7 @@ export const tools = [
     status: 'In development',
     description: 'Reusable interface components for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'ui',
   },
   {
@@ -90,7 +90,7 @@ export const tools = [
     status: 'Planned',
     description: 'Reusable styling utilities for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'style',
   },
   {
@@ -101,7 +101,7 @@ export const tools = [
     description:
       'Reusable modal, dialog and overlay components for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'modal',
   },
   {
@@ -112,7 +112,7 @@ export const tools = [
     description:
       'Reusable utilities for formatting dates, numbers, strings and common data types.',
     repository: 'https://github.com/Peccopa',
-    image: '/images/tools/dev-store.png',
+    image: '/rsschool-landing-page/images/placeholder.webp',
     icon: 'format',
   },
 ];
