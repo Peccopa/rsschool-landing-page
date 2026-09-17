@@ -40,7 +40,7 @@ export const tools = [
     status: 'Available',
     description: 'Reusable sound and audio utilities for web applications.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/sound-kit.webp',
     icon: 'sound',
   },
   {
@@ -50,7 +50,7 @@ export const tools = [
     status: 'Available',
     description: 'Simple internationalization utilities for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/i18n-kit.webp',
     icon: 'i18n',
   },
   {
@@ -80,7 +80,7 @@ export const tools = [
     status: 'In development',
     description: 'Reusable interface components for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/ui-kit.webp',
     icon: 'ui',
   },
   {
@@ -90,7 +90,7 @@ export const tools = [
     status: 'Planned',
     description: 'Reusable styling utilities for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/style-kit.webp',
     icon: 'style',
   },
   {
@@ -101,7 +101,7 @@ export const tools = [
     description:
       'Reusable modal, dialog and overlay components for web projects.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/modal-kit.webp',
     icon: 'modal',
   },
   {

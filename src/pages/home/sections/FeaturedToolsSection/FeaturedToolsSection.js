@@ -58,7 +58,7 @@ export default class FeaturedToolsSection extends ContainerComponent {
         children: [
           new ImageComponent({
             source: icons[tool.icon],
-            alt: `${tool.name} icon`,
+            alt: ``,
           }),
           new TextComponent({
             tag: 'h3',
