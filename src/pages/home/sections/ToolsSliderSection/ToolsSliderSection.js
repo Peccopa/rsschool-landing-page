@@ -87,7 +87,7 @@ export default class ToolsSliderSection extends ContainerComponent {
 
     const controls = new ContainerComponent({
       classes: styles['tools-slider__controls'],
-      children: [previousButton, playButton, nextButton],
+      children: [nextButton, previousButton, playButton],
     });
 
     this.setChildren([title, this.slide, this.description, controls]);
