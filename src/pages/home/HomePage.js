@@ -5,7 +5,7 @@ import FeaturedToolsSection from './sections/FeaturedToolsSection/FeaturedToolsS
 import WhySection from './sections/WhySection/WhySection';
 import ToolsSliderSection from './sections/ToolsSliderSection/ToolsSliderSection';
 import AboutSection from './sections/AboutSection/AboutSection';
-import CtaSection from './sections/CtaSection';
+import CtaSection from './sections/CtaSection/CtaSection';
 
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {

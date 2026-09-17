@@ -2,7 +2,7 @@ import {
   ContainerComponent,
   TextComponent,
   LinkComponent,
-} from '../../../shared/component-kit';
+} from '../../../../shared/component-kit';
 
 export default class CtaSection extends ContainerComponent {
   constructor({ ...rest } = {}) {

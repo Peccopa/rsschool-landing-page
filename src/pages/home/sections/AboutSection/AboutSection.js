@@ -1,3 +1,5 @@
+import styles from './AboutSection.module.css';
+
 import {
   ContainerComponent,
   TextComponent,
@@ -8,7 +10,7 @@ export default class AboutSection extends ContainerComponent {
     super({
       tag: 'section',
       id: 'about',
-      classes: 'about',
+      classes: styles.about,
       ...rest,
     });
 
@@ -21,11 +23,20 @@ export default class AboutSection extends ContainerComponent {
       content: 'About Dev Store',
     });
 
-    const description = new TextComponent({
-      content:
-        'Dev Store is a collection of reusable tools created for modern web development projects.',
+    const content = new ContainerComponent({
+      classes: styles.about__content,
+      children: [
+        new TextComponent({
+          content:
+            'Dev Store is a personal collection of reusable tools created while learning and building frontend applications. The project brings together small libraries, utilities and starter templates that solve recurring development tasks.',
+        }),
+        new TextComponent({
+          content:
+            'The collection grows alongside real projects. Tools are extracted, improved and reused when they prove useful, turning individual solutions into a growing set of development building blocks.',
+        }),
+      ],
     });
 
-    this.setChildren([title, description]);
+    this.setChildren([title, content]);
   }
 }
