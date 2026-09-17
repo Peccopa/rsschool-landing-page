@@ -1,3 +1,5 @@
+import styles from './CtaSection.module.css';
+
 import {
   ContainerComponent,
   TextComponent,
@@ -9,7 +11,7 @@ export default class CtaSection extends ContainerComponent {
     super({
       tag: 'section',
       id: 'cta',
-      classes: 'cta',
+      classes: styles.cta,
       ...rest,
     });
 
@@ -17,21 +19,26 @@ export default class CtaSection extends ContainerComponent {
   }
 
   render() {
-    const title = new TextComponent({
-      tag: 'h2',
-      content: 'Ready to explore?',
-    });
-
-    const description = new TextComponent({
-      content:
-        'Browse the catalog and find reusable tools for your next project.',
+    const content = new ContainerComponent({
+      classes: styles.cta__content,
+      children: [
+        new TextComponent({
+          tag: 'h2',
+          content: 'Ready to explore?',
+        }),
+        new TextComponent({
+          content:
+            'Browse the catalog and find reusable tools for your next project.',
+        }),
+      ],
     });
 
     const link = new LinkComponent({
       content: 'Open catalog',
       href: '/catalog',
+      classes: styles.cta__link,
     });
 
-    this.setChildren([title, description, link]);
+    this.setChildren([content, link]);
   }
 }
