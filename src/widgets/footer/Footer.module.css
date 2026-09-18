@@ -44,6 +44,10 @@
   transition: color 0.2s ease;
 }
 
+.footer__column a:hover {
+  color: var(--accent);
+}
+
 /* .footer__column a:hover {
   color: var(--accent);
 } */

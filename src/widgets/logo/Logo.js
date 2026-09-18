@@ -6,7 +6,7 @@ export default class Logo extends LinkComponent {
   constructor({ ...rest } = {}) {
     super({
       content: '</> Dev Store',
-      href: '/',
+      href: '/#header',
       classes: styles.logo,
       ...rest,
     });

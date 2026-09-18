@@ -49,11 +49,34 @@ export default class Header extends ContainerComponent {
       href: '/catalog',
     });
 
+    const navList = new ContainerComponent({
+      tag: 'ul',
+      classes: styles.header__nav_list,
+      children: [
+        new ContainerComponent({
+          tag: 'li',
+          children: [homeLink],
+        }),
+        new ContainerComponent({
+          tag: 'li',
+          children: [aboutLink],
+        }),
+        new ContainerComponent({
+          tag: 'li',
+          children: [toolsLink],
+        }),
+        new ContainerComponent({
+          tag: 'li',
+          children: [catalogLink],
+        }),
+      ],
+    });
+
     const nav = new ContainerComponent({
       tag: 'nav',
       id: 'header-nav',
       classes: styles.header__nav,
-      children: [homeLink, aboutLink, toolsLink, catalogLink],
+      children: [navList],
     });
 
     const themeButton = new ButtonComponent({

@@ -7,6 +7,7 @@
 .catalog-tools__list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 24px;
   gap: 24px;
 }
 
@@ -26,5 +27,10 @@
 @media (max-width: 600px) {
   .catalog-tools__list {
     grid-template-columns: 1fr;
+  }
+
+  .catalog-tools__list {
+    padding: 16px;
+    gap: 16px;
   }
 }

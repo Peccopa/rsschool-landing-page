@@ -13,7 +13,6 @@ export default class CatalogCategoriesSection extends ContainerComponent {
 
   constructor({ onCategoryChange, ...rest } = {}) {
     super({
-      tag: 'section',
       id: 'catalog-categories',
       classes: styles['catalog-categories'],
       ...rest,

@@ -10,13 +10,12 @@ import { tools } from '../../../entities/tool/model/tools';
 import styles from './CatalogToolsSection.module.css';
 
 export default class CatalogToolsSection extends ContainerComponent {
-  currentLimit = 4;
+  currentLimit = 8;
 
   currentCategory = 'All';
 
   constructor({ ...rest } = {}) {
     super({
-      tag: 'section',
       id: 'catalog-tools',
       classes: styles['catalog-tools'],
       ...rest,
@@ -27,7 +26,7 @@ export default class CatalogToolsSection extends ContainerComponent {
 
   render(category = this.currentCategory) {
     this.currentCategory = category;
-    this.currentLimit = 4;
+    this.currentLimit = 8;
     this.update();
   }
 
