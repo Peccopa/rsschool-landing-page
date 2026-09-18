@@ -7,6 +7,7 @@ import {
   LinkComponent,
   ButtonComponent,
 } from '../../shared/component-kit';
+
 import Logo from '../logo/Logo';
 
 export default class Header extends ContainerComponent {
@@ -50,12 +51,20 @@ export default class Header extends ContainerComponent {
 
     const nav = new ContainerComponent({
       tag: 'nav',
+      id: 'header-nav',
       classes: styles.header__nav,
       children: [homeLink, aboutLink, toolsLink, catalogLink],
     });
 
     const themeButton = new ButtonComponent({
-      content: currentTheme === 'dark' ? 'Light mode' : 'Dark mode',
+      content: currentTheme === 'dark' ? '☀' : '☾',
+      classes: styles['theme-button'],
+      attributes: {
+        'aria-label':
+          currentTheme === 'dark'
+            ? 'Switch to light theme'
+            : 'Switch to dark theme',
+      },
       listeners: {
         click: () => {
           const nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
@@ -63,9 +72,14 @@ export default class Header extends ContainerComponent {
           setTheme(nextTheme);
           applyTheme(nextTheme);
 
-          themeButton.setContent(
-            nextTheme === 'dark' ? 'Light mode' : 'Dark mode',
-          );
+          themeButton.setContent(nextTheme === 'dark' ? '☀' : '☾');
+
+          themeButton.setAttributes({
+            'aria-label':
+              nextTheme === 'dark'
+                ? 'Switch to light theme'
+                : 'Switch to dark theme',
+          });
         },
       },
     });
@@ -75,6 +89,52 @@ export default class Header extends ContainerComponent {
       children: [themeButton],
     });
 
-    this.setChildren([logo, nav, actions]);
+    const burgerButton = new ButtonComponent({
+      classes: styles.header__burger,
+      content: '',
+      attributes: {
+        'aria-label': 'Open menu',
+        'aria-expanded': 'false',
+        'aria-controls': 'header-nav',
+      },
+      listeners: {
+        click: () => {
+          const isOpen = nav.hasClasses(styles.open);
+
+          nav.toggleClasses(styles.open, !isOpen);
+          burgerButton.toggleClasses(styles.open, !isOpen);
+
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+
+          burgerButton.setAttributes({
+            'aria-label': isOpen ? 'Open menu' : 'Close menu',
+            'aria-expanded': String(!isOpen),
+          });
+        },
+      },
+    });
+
+    burgerButton.setChildren([
+      new ContainerComponent({
+        tag: 'span',
+        classes: styles['header__burger-lines'],
+        children: [
+          new ContainerComponent({
+            tag: 'span',
+            classes: styles['header__burger-line'],
+          }),
+          new ContainerComponent({
+            tag: 'span',
+            classes: styles['header__burger-line'],
+          }),
+          new ContainerComponent({
+            tag: 'span',
+            classes: styles['header__burger-line'],
+          }),
+        ],
+      }),
+    ]);
+
+    this.setChildren([logo, nav, actions, burgerButton]);
   }
 }
