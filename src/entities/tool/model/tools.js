@@ -11,6 +11,40 @@ export const tools = [
     repository: 'https://github.com/Peccopa/component-kit',
     image: '/rsschool-landing-page/images/component-kit.webp',
     icon: 'component',
+
+    parameters: {
+      environment: {
+        label: 'Environment',
+        options: [
+          {
+            value: 'javascript',
+            label: 'JavaScript',
+            info: 'Use the kit in JavaScript projects.',
+          },
+          {
+            value: 'typescript',
+            label: 'TypeScript',
+            info: 'Use the kit in TypeScript projects.',
+          },
+        ],
+      },
+
+      scope: {
+        label: 'Scope',
+        options: [
+          {
+            value: 'components',
+            label: 'Components',
+            info: 'Use reusable UI components.',
+          },
+          {
+            value: 'managers',
+            label: 'Managers',
+            info: 'Use DOM, events and other managers.',
+          },
+        ],
+      },
+    },
   },
   {
     id: 'state-kit',

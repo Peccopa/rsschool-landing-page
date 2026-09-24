@@ -4,6 +4,7 @@ import {
 } from '../../../shared/component-kit';
 
 import ToolCard from '../../../entities/tool/ui/ToolCard';
+import ToolModal from '../../../entities/tool/ui/ToolModal';
 
 import { tools } from '../../../entities/tool/model/tools';
 
@@ -21,6 +22,7 @@ export default class CatalogToolsSection extends ContainerComponent {
       ...rest,
     });
 
+    this.modal = null;
     this.render();
   }
 
@@ -44,6 +46,9 @@ export default class CatalogToolsSection extends ContainerComponent {
         (tool) =>
           new ToolCard({
             tool,
+            onClick: (selectedTool) => {
+              this.openModal(selectedTool);
+            },
           }),
       ),
     });
@@ -68,5 +73,17 @@ export default class CatalogToolsSection extends ContainerComponent {
     });
 
     this.appendChildren([button]);
+  }
+
+  openModal(tool) {
+    this.modal?.destroy();
+
+    this.modal = new ToolModal({
+      tool,
+    });
+
+    this.appendChildren([this.modal]);
+
+    this.modal.open();
   }
 }

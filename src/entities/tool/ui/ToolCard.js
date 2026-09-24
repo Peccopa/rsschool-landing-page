@@ -7,10 +7,15 @@ import {
 } from '../../../shared/component-kit';
 
 export default class ToolCard extends ContainerComponent {
-  constructor({ tool, ...rest } = {}) {
+  constructor({ tool, onClick, ...rest } = {}) {
     super({
       tag: 'article',
       classes: styles['tool-card'],
+      listeners: {
+        click: () => {
+          onClick?.(tool);
+        },
+      },
       ...rest,
     });
 
