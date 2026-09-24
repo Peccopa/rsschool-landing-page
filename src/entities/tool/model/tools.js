@@ -112,7 +112,7 @@ export const tools = [
     description:
       'Reusable utilities for formatting dates, numbers, strings and common data types.',
     repository: 'https://github.com/Peccopa',
-    image: '/rsschool-landing-page/images/placeholder.webp',
+    image: '/rsschool-landing-page/images/format-kit.webp',
     icon: 'format',
   },
 ];
