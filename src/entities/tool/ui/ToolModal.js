@@ -60,10 +60,9 @@ export default class ToolModal extends ContainerComponent {
     });
 
     const parameters = this.tool.parameters
-      ? [
-          this.createParameter(this.tool.parameters.environment),
-          this.createParameter(this.tool.parameters.scope),
-        ]
+      ? Object.values(this.tool.parameters).map((parameter) =>
+          this.createParameter(parameter),
+        )
       : [];
 
     const content = new ContainerComponent({
