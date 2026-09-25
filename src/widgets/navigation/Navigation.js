@@ -1,4 +1,7 @@
 import { ContainerComponent, LinkComponent } from '../../shared/component-kit';
+
+import appState from '../../app/state';
+
 import styles from './Navigation.module.css';
 
 export default class Navigation extends ContainerComponent {
@@ -11,6 +14,12 @@ export default class Navigation extends ContainerComponent {
     });
 
     this.render();
+
+    this.unsubscribe = appState.subscribe((state) => {
+      this.update(state.menu.open);
+    });
+
+    this.update(appState.getState().menu.open);
   }
 
   render() {
@@ -60,5 +69,48 @@ export default class Navigation extends ContainerComponent {
     this.setChildren([navList]);
 
     this.links = [homeLink, aboutLink, toolsLink, catalogLink];
+
+    this.addListeners();
+
+    this.unsubscribe = appState.subscribe((state) => {
+      this.update(state.menu.open);
+    });
+
+    this.update(appState.getState().menu.open);
+  }
+
+  addListeners() {
+    this.links.forEach((link) => {
+      link.setListeners({
+        click: () => {
+          appState.dispatch({
+            type: 'MENU_CLOSE',
+          });
+        },
+      });
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        appState.dispatch({
+          type: 'MENU_CLOSE',
+        });
+      }
+    });
+
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+
+    mediaQuery.addEventListener('change', (event) => {
+      if (event.matches) {
+        appState.dispatch({
+          type: 'MENU_CLOSE',
+        });
+      }
+    });
+  }
+
+  update(isOpen) {
+    this.toggleClasses(styles.open, isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 }

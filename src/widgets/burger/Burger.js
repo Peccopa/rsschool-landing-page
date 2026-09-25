@@ -1,3 +1,5 @@
+import appState from '../../app/state';
+
 import {
   ButtonComponent,
   ContainerComponent,
@@ -39,5 +41,32 @@ export default class Burger extends ButtonComponent {
         ],
       }),
     ]);
+
+    this.addListeners();
+
+    this.unsubscribe = appState.subscribe((state) => {
+      this.update(state.menu.open);
+    });
+
+    this.update(appState.getState().menu.open);
+  }
+
+  addListeners() {
+    this.setListeners({
+      click: () => {
+        appState.dispatch({
+          type: 'MENU_TOGGLE',
+        });
+      },
+    });
+  }
+
+  update(isOpen) {
+    this.toggleClasses(styles.open, isOpen);
+
+    this.setAttributes({
+      'aria-label': isOpen ? 'Close menu' : 'Open menu',
+      'aria-expanded': String(isOpen),
+    });
   }
 }
