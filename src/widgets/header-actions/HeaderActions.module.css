@@ -1,0 +1,10 @@
+.actions {
+  justify-self: end;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    margin-left: auto;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,81 @@
+.burger {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--accent);
+
+  cursor: pointer;
+}
+
+.lines {
+  position: relative;
+
+  width: 20px;
+  height: 16px;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+
+  width: 20px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: currentColor;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    top 0.25s ease;
+}
+
+.line:nth-child(1) {
+  top: 0;
+}
+
+.line:nth-child(2) {
+  top: 7px;
+}
+
+.line:nth-child(3) {
+  top: 14px;
+}
+
+/* Burger → Cross */
+
+.burger.open .line:nth-child(1) {
+  top: 7px;
+  transform: rotate(45deg);
+}
+
+.burger.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open .line:nth-child(3) {
+  top: 7px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .burger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
