@@ -54,10 +54,6 @@ img {
   max-width: 100%;
 }
 
-/* h2 {
-  color: var(--title);
-} */
-
 .app {
   min-height: 100vh;
   overflow-x: hidden;
