@@ -14,6 +14,9 @@ export default class ToolsSliderSection extends ContainerComponent {
   currentIndex;
   isPlaying;
   timer;
+  track;
+  description;
+  playButton;
 
   constructor({ ...rest } = {}) {
     super({
@@ -42,24 +45,38 @@ export default class ToolsSliderSection extends ContainerComponent {
       classes: styles['tools-slider__description'],
     });
 
-    this.slide = new LinkComponent({
-      classes: styles['tools-slider__slide'],
-      target: '_blank',
-      rel: 'noopener noreferrer',
+    const viewport = new ContainerComponent({
+      classes: styles['tools-slider__viewport'],
     });
 
-    this.image = new ImageComponent({
-      source: '',
-      alt: '',
+    this.track = new ContainerComponent({
+      classes: styles['tools-slider__track'],
     });
 
-    this.slide.appendChildren([this.image]);
+    const slides = tools.map((tool) => {
+      const image = new ImageComponent({
+        source: tool.image,
+        alt: `${tool.name} cover`,
+      });
+
+      return new LinkComponent({
+        classes: styles['tools-slider__slide'],
+        href: tool.repository,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        children: [image],
+      });
+    });
+
+    this.track.setChildren(slides);
+    viewport.setChildren([this.track]);
 
     const previousButton = new ButtonComponent({
       content: 'Previous',
       classes: styles['tools-button'],
       listeners: {
         click: () => {
+          this.pauseAutoPlay();
           this.showPrevious();
         },
       },
@@ -80,6 +97,7 @@ export default class ToolsSliderSection extends ContainerComponent {
       classes: styles['tools-button'],
       listeners: {
         click: () => {
+          this.pauseAutoPlay();
           this.showNext();
         },
       },
@@ -87,10 +105,10 @@ export default class ToolsSliderSection extends ContainerComponent {
 
     const controls = new ContainerComponent({
       classes: styles['tools-slider__controls'],
-      children: [nextButton, previousButton, playButton],
+      children: [previousButton, playButton, nextButton],
     });
 
-    this.setChildren([title, this.slide, this.description, controls]);
+    this.setChildren([title, viewport, this.description, controls]);
 
     this.playButton = playButton;
 
@@ -98,12 +116,11 @@ export default class ToolsSliderSection extends ContainerComponent {
   }
 
   update() {
-    const tool = tools[this.currentIndex];
+    this.track.setStyle({
+      transform: `translateX(-${this.currentIndex * 100}%)`,
+    });
 
-    this.image.setSrc(tool.image);
-    this.image.setAlt(`${tool.name} cover`);
-    this.slide.setHref(tool.repository);
-    this.description.setContent(tool.description);
+    this.description.setContent(tools[this.currentIndex].description);
   }
 
   showNext() {
@@ -125,7 +142,7 @@ export default class ToolsSliderSection extends ContainerComponent {
       if (this.isPlaying) {
         this.showNext();
       }
-    }, 5000);
+    }, 1500);
   }
 
   stopAutoPlay() {
@@ -136,8 +153,19 @@ export default class ToolsSliderSection extends ContainerComponent {
   }
 
   toggleAutoPlay() {
-    this.isPlaying = !this.isPlaying;
+    if (this.isPlaying) {
+      this.pauseAutoPlay();
+      return;
+    }
 
-    this.playButton.setContent(this.isPlaying ? 'Pause' : 'Play');
+    this.isPlaying = true;
+    this.startAutoPlay();
+    this.playButton.setContent('Pause');
+  }
+
+  pauseAutoPlay() {
+    this.stopAutoPlay();
+    this.isPlaying = false;
+    this.playButton.setContent('Play');
   }
 }
