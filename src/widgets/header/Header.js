@@ -137,6 +137,22 @@ export default class Header extends ContainerComponent {
       },
     });
 
+    const navLinks = [homeLink, aboutLink, toolsLink, catalogLink];
+
+    navLinks.forEach((link) => {
+      link.setListeners({
+        click: () => {
+          nav.toggleClasses(styles.open, false);
+          burgerButton.toggleClasses(styles.open, false);
+          document.body.style.overflow = '';
+          burgerButton.setAttributes({
+            'aria-label': 'Open menu',
+            'aria-expanded': 'false',
+          });
+        },
+      });
+    });
+
     burgerButton.setChildren([
       new ContainerComponent({
         tag: 'span',
