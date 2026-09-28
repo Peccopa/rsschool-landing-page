@@ -10,9 +10,8 @@ import CtaSection from './sections/CtaSection/CtaSection';
 export default class HomePage extends ContainerComponent {
   constructor({ ...rest } = {}) {
     super({
-      tag: 'main',
       id: 'home-page',
-      classes: ['main', 'home-page'],
+      classes: ['home-page'],
       ...rest,
     });
 
