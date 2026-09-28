@@ -16,6 +16,12 @@
   height: 100%;
   padding: 24px;
   background: rgb(0 0 0 / 50%);
+
+  animation: overlay-fade-in 0.2s linear both;
+}
+
+.modal.closing .modal__overlay {
+  animation: overlay-fade-out 0.2s linear both;
 }
 
 .modal__content {
@@ -27,6 +33,12 @@
   border: 1px solid currentColor;
   border-radius: 12px;
   background: var(--surface);
+
+  animation: modal-slide-in 0.2s ease-out both;
+}
+
+.modal.closing .modal__content {
+  animation: modal-slide-out 0.3s ease-in both;
 }
 
 .modal__content h2 {
@@ -111,4 +123,44 @@
 
 .modal__parameter_option--active:hover {
   border-color: var(--accent);
+}
+
+@keyframes modal-slide-in {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-slide-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

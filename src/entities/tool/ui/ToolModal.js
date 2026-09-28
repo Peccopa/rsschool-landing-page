@@ -20,9 +20,8 @@ export default class ToolModal extends ContainerComponent {
     });
 
     this.tool = tool;
-
     this.render();
-    this.close();
+    this.hide(false);
 
     this.handleKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -169,13 +168,27 @@ export default class ToolModal extends ContainerComponent {
   }
 
   open() {
+    this.isClosing = false;
+    this.element.classList.remove(styles.closing);
+
     this.show(false);
     document.body.classList.add('overflow-hidden');
   }
 
   close() {
-    this.hide(false);
-    document.body.classList.remove('overflow-hidden');
+    if (this.isClosing) {
+      return;
+    }
+
+    this.isClosing = true;
+    this.element.classList.add(styles.closing);
+
+    setTimeout(() => {
+      this.hide(false);
+      this.element.classList.remove(styles.closing);
+      document.body.classList.remove('overflow-hidden');
+      this.isClosing = false;
+    }, 300);
   }
 
   destroy() {
