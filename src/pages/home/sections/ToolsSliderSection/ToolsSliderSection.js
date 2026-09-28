@@ -17,6 +17,7 @@ export default class ToolsSliderSection extends ContainerComponent {
   track;
   description;
   playButton;
+  isTransitioning;
 
   constructor({ ...rest } = {}) {
     super({
@@ -29,6 +30,7 @@ export default class ToolsSliderSection extends ContainerComponent {
     this.currentIndex = 0;
     this.isPlaying = true;
     this.timer = null;
+    this.isTransitioning = false;
 
     this.render();
     this.startAutoPlay();
@@ -53,7 +55,7 @@ export default class ToolsSliderSection extends ContainerComponent {
       classes: styles['tools-slider__track'],
     });
 
-    const slides = tools.map((tool) => {
+    const createSlide = (tool) => {
       const image = new ImageComponent({
         source: tool.image,
         alt: `${tool.name} cover`,
@@ -66,7 +68,13 @@ export default class ToolsSliderSection extends ContainerComponent {
         rel: 'noopener noreferrer',
         children: [image],
       });
-    });
+    };
+
+    const slides = [
+      createSlide(tools[tools.length - 1]),
+      ...tools.map(createSlide),
+      createSlide(tools[0]),
+    ];
 
     this.track.setChildren(slides);
     viewport.setChildren([this.track]);
@@ -111,7 +119,7 @@ export default class ToolsSliderSection extends ContainerComponent {
     this.setChildren([title, viewport, this.description, controls]);
 
     this.playButton = playButton;
-
+    this.currentIndex = 1;
     this.update();
   }
 
@@ -120,19 +128,81 @@ export default class ToolsSliderSection extends ContainerComponent {
       transform: `translateX(-${this.currentIndex * 100}%)`,
     });
 
-    this.description.setContent(tools[this.currentIndex].description);
+    const toolIndex = (this.currentIndex - 1 + tools.length) % tools.length;
+
+    this.description.setContent(tools[toolIndex].description);
   }
 
   showNext() {
-    this.currentIndex = (this.currentIndex + 1) % tools.length;
+    if (this.isTransitioning) return;
+
+    this.isTransitioning = true;
+    this.currentIndex += 1;
 
     this.update();
+
+    this.track.element.addEventListener(
+      'transitionend',
+      () => {
+        if (this.currentIndex === tools.length + 1) {
+          this.track.setStyle({
+            transition: 'none',
+            transform: 'translateX(-100%)',
+          });
+
+          this.currentIndex = 1;
+
+          requestAnimationFrame(() => {
+            this.track.setStyle({
+              transition: 'transform 0.4s ease-in-out',
+            });
+
+            this.isTransitioning = false;
+          });
+
+          return;
+        }
+
+        this.isTransitioning = false;
+      },
+      { once: true },
+    );
   }
 
   showPrevious() {
-    this.currentIndex = (this.currentIndex - 1 + tools.length) % tools.length;
+    if (this.isTransitioning) return;
+
+    this.isTransitioning = true;
+    this.currentIndex -= 1;
 
     this.update();
+
+    this.track.element.addEventListener(
+      'transitionend',
+      () => {
+        if (this.currentIndex === 0) {
+          this.track.setStyle({
+            transition: 'none',
+            transform: `translateX(-${tools.length * 100}%)`,
+          });
+
+          this.currentIndex = tools.length;
+
+          requestAnimationFrame(() => {
+            this.track.setStyle({
+              transition: 'transform 0.4s ease-in-out',
+            });
+
+            this.isTransitioning = false;
+          });
+
+          return;
+        }
+
+        this.isTransitioning = false;
+      },
+      { once: true },
+    );
   }
 
   startAutoPlay() {
