@@ -21,6 +21,11 @@
   color: var(--accent);
 }
 
+.active {
+  color: var(--accent);
+  pointer-events: none;
+}
+
 /* Mobile */
 
 @media (max-width: 768px) {

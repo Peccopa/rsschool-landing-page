@@ -26,6 +26,14 @@ export default class Main extends ContainerComponent {
       return this;
     }
 
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+      this.setChildren([page]);
+
+      return this;
+    }
+
     this.setStyle({
       opacity: '0',
     });

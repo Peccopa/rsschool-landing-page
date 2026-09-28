@@ -67,16 +67,20 @@ export default class Navigation extends ContainerComponent {
     });
 
     this.setChildren([navList]);
-
     this.links = [homeLink, aboutLink, toolsLink, catalogLink];
 
+    this.updateActiveLink();
     this.addListeners();
+  }
 
-    this.unsubscribe = appState.subscribe((state) => {
-      this.update(state.menu.open);
-    });
+  updateActiveLink() {
+    const pathname = window.location.pathname;
+    const isCatalog = pathname.endsWith('/catalog');
 
-    this.update(appState.getState().menu.open);
+    this.links[0].toggleClasses(styles.active, !isCatalog);
+    this.links[1].toggleClasses(styles.active, false);
+    this.links[2].toggleClasses(styles.active, false);
+    this.links[3].toggleClasses(styles.active, isCatalog);
   }
 
   addListeners() {
@@ -88,6 +92,16 @@ export default class Navigation extends ContainerComponent {
           });
         },
       });
+    });
+
+    document.addEventListener('click', () => {
+      requestAnimationFrame(() => {
+        this.updateActiveLink();
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      this.updateActiveLink();
     });
 
     window.addEventListener('keydown', (event) => {
