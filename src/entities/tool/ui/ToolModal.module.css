@@ -56,7 +56,7 @@
   background: transparent;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .modal__parameter_options {
@@ -71,7 +71,7 @@
   border-radius: 6px;
   background: transparent;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .modal__parameter_option--active {
@@ -81,7 +81,7 @@
   background: var(--accent);
   color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .modal__parameter_info {
@@ -92,7 +92,7 @@
 
 .github__link {
   color: var(--accent);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .modal__close:hover {

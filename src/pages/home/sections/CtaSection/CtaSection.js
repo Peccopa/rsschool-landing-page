@@ -37,6 +37,11 @@ export default class CtaSection extends ContainerComponent {
       content: 'Open catalog',
       href: '/catalog',
       classes: styles.cta__link,
+      listeners: {
+        click: () => {
+          document.querySelector('#header')?.scrollIntoView();
+        },
+      },
     });
 
     this.setChildren([content, link]);
