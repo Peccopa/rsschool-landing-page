@@ -92,7 +92,8 @@ export default class ToolModal extends ContainerComponent {
         }),
 
         new LinkComponent({
-          content: 'Repository',
+          classes: styles.github__link,
+          content: 'GitHub Repository →',
           href: this.tool.repository,
           attributes: {
             target: '_blank',
