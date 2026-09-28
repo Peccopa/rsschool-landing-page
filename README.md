@@ -1,103 +1,67 @@
-# Landing Page
+# Dev Store
 
-Авторский проект для RS School Fullstack Engineering Course.
+Авторский проект для **RS School Fullstack Engineering Course**.
 
-## 1. Концепция
-
-Сайт-презентация и каталог собственных инструментов для frontend-разработки.
-
-Проект объединяет готовые, разрабатываемые и планируемые инструменты в единую коллекцию.
-
-Основная идея:
+**Dev Store** — сайт-презентация и каталог собственных инструментов для frontend-разработки.
 
 > Build once. Reuse everywhere.
 
-Название проекта будет определено отдельно.
+## Demo
+
+[Live Demo](https://peccopa.github.io/rsschool-landing-page/)
+
+## 1. О проекте
+
+Проект объединяет собственные инструменты и starter-пакеты для frontend-разработки в едином каталоге.
+
+Основная идея — создавать небольшие переиспользуемые инструменты, которые можно применять в разных проектах.
+
+Проект также используется для практики:
+
+- адаптивной вёрстки;
+- DOM manipulation;
+- работы с состоянием;
+- клиентской маршрутизации;
+- интерактивных UI-компонентов;
+- `localStorage`;
+- светлой и тёмной тем;
+- accessibility;
+- тестирования;
+- production build и deployment.
 
 ---
 
-## 2. Цели
-
-### Учебные
-
-- выполнить требования Landing Page Part 1;
-- выполнить требования Landing Page Part 2;
-- закрепить адаптивную вёрстку;
-- реализовать работу с DOM;
-- реализовать интерактивность на чистом JavaScript;
-- использовать `localStorage`;
-- реализовать светлую и тёмную темы.
-
-### Практические
-
-- создать реальную презентацию собственных инструментов;
-- развивать собственный `ui-kit` на базе `component-kit`;
-- проверить совместную работу собственных инструментов;
-- получить основу для дальнейшего развития проекта.
-
----
-
-## 3. Технологии
-
-- HTML
-- CSS / SCSS
-- JavaScript
-- Vite
-- Vitest
-- ESLint
-- Prettier
-- Git / GitHub
-
-Собственные инструменты:
-
-- `component-kit`
-- `state-kit`
-- `router-kit`
-- `sound-kit`
-- `i18n-kit`
-- `js-starter-pack`
-
-При необходимости:
-
-- `ts-starter-pack`
-- `ui-kit`
-- `style-kit`
-- `theme-kit`
-
----
-
-## 4. Страницы
+## 2. Страницы
 
 ### Home
 
-Главная страница проекта.
+Главная страница проекта содержит:
 
-Предварительная структура:
-
-1. Hero
-2. Featured Tools
-3. Advantages / Philosophy
-4. About Author
-5. Roadmap
-6. CTA
+- Hero;
+- Featured Tools;
+- преимущества и философию проекта;
+- интерактивный slider;
+- About Author;
+- CTA.
 
 ### Catalog
 
-Каталог инструментов.
-
-Основные возможности:
+Каталог инструментов содержит:
 
 - категории;
+- фильтрацию;
 - карточки инструментов;
-- фильтрация;
-- дополнительные карточки;
-- открытие подробной информации;
-- выбор параметров инструмента;
-- модальное окно.
+- Show More;
+- подробное модальное окно;
+- параметры инструментов;
+- динамическую информацию;
+- ссылки на GitHub.
+
+Навигация между страницами выполняется без перезагрузки страницы.
 
 ---
 
-## 5. Инструменты
+## 3. Инструменты
 
 ### Available
 
@@ -111,7 +75,7 @@
 | JS Starter Pack | Starter  | Available |
 | TS Starter Pack | Starter  | Available |
 
-### In development
+### In Development
 
 | Tool      | Category     | Status      |
 | --------- | ------------ | ----------- |
@@ -119,228 +83,202 @@
 | Style Kit | UI / Styling | Development |
 | Theme Kit | UI / Styling | Development |
 
-### Planned
-
-Возможные будущие инструменты:
-
-- Form Kit
-- HTTP / API Kit
-- Storage Kit
-- Validation Kit
-- Test Kit
-- Animation Kit
-- Utils Kit
-- Date Kit
-- Modal Kit
-
-Список не является обязательством к реализации.
+Дополнительные инструменты могут быть добавлены в будущем.
 
 ---
 
-## 6. UI Kit
+## 4. Technologies
 
-`ui-kit` создаётся непосредственно в процессе выполнения проекта.
+- HTML
+- CSS
+- JavaScript
+- Vite
+- Vitest
+- ESLint
+- Prettier
+- Git
+- GitHub Pages
 
-Базой служит `component-kit`.
+Собственные инструменты:
 
-Предварительные компоненты:
-
-- Navigation
-- Slider
-- Card
-- Modal
-- Theme Switcher
-- Search
-- Filter
-- Select
-- Pagination
-- Tabs
-
-Компоненты добавляются по мере возникновения реальной необходимости.
-
-Не создавать компоненты заранее без практического применения.
+- `@peccopa/component-kit`
+- `@peccopa/state-kit`
+- `@peccopa/router-kit`
+- `@peccopa/sound-kit`
+- `@peccopa/i18n-kit`
 
 ---
 
-## 7. Theme System
+## 5. Architecture
 
-Необходимо реализовать:
+Проект использует компонентный подход и FSD-подобную структуру.
 
-- light theme;
-- dark theme;
-- переключение темы;
-- сохранение выбора в `localStorage`;
-- восстановление темы после перезагрузки;
-- сохранение темы при переходе между страницами.
+Основные уровни:
 
-`theme-kit` будет использоваться как экспериментальная основа для этой функциональности.
+```text
+src/
+├── app/
+├── entities/
+├── pages/
+├── widgets/
+├── shared/
+└── main.js
+```
 
----
+`component-kit` используется как основа для создания UI-компонентов проекта.
 
-## 8. Catalog
+Для клиентской навигации используется собственный `router-kit`.
 
-Каталог должен содержать минимум три категории.
-
-Предварительные категории:
-
-- Core
-- UI
-- Tools
-
-Карточка инструмента содержит:
-
-- обложку;
-- название;
-- категорию;
-- статус;
-- краткое описание;
-- дополнительную информацию;
-- ссылку на репозиторий / npm при наличии.
-
-В одной категории должно быть не менее восьми карточек.
-
-Для будущих инструментов используется явный статус:
-
-- Available
-- Development
-- Planned
+Состояние отдельных интерактивных элементов управляется через собственный `state-kit`.
 
 ---
 
-## 9. Part 1 — Layout
+## 6. Implemented Features
 
-### Pages
+### Navigation
 
-- [ ] Home
-- [ ] Catalog
-- [ ] Общий Header
-- [ ] Общий Footer
-- [ ] Разные URL
-- [ ] Favicon
-
-### Header
-
-- [ ] Logo / project name
-- [ ] Navigation
-- [ ] Theme switcher
-- [ ] Burger button ≤768px
-
-### Home
-
-- [ ] Hero
-- [ ] CTA
-- [ ] Slider ≥3 items
-- [ ] Section 3
-- [ ] Section 4
+- Home / Catalog navigation;
+- hash navigation;
+- active page state;
+- browser Back / Forward;
+- navigation without page reload;
+- mobile burger menu;
+- Escape для закрытия мобильного меню.
 
 ### Catalog
 
-- [ ] ≥3 categories
-- [ ] Category controls
-- [ ] ≥8 cards in one category
-- [ ] Show more / pagination
-- [ ] Card image
-- [ ] Card title
-- [ ] Card description
-- [ ] Additional card information
+- категории;
+- фильтрация инструментов;
+- отображение карточек;
+- Show More;
+- динамическое количество отображаемых карточек;
+- модальное окно инструмента.
 
-### Footer
+### Modal
 
-- [ ] Contact information
-- [ ] External links
-- [ ] GitHub
-- [ ] RS School link
-- [ ] Copyright
-
-### Responsive
-
-- [ ] 1440px
-- [ ] 768px
-- [ ] 380px
-- [ ] Intermediate widths
-- [ ] No horizontal overflow
+- открытие по карточке;
+- закрытие по кнопке;
+- закрытие по overlay;
+- закрытие по `Escape`;
+- выбор параметров инструмента;
+- динамическое изменение информации;
+- GitHub Repository link;
+- open / close animations.
 
 ### Theme
 
-- [ ] Light
-- [ ] Dark
-- [ ] localStorage
-- [ ] Restore after reload
-- [ ] Preserve between pages
+- Light Theme;
+- Dark Theme;
+- переключение темы;
+- сохранение выбранной темы в `localStorage`;
+- восстановление темы после перезагрузки;
+- сохранение темы при переходе между страницами.
+
+### Responsive Design
+
+Поддерживаются:
+
+- 1440px;
+- 768px;
+- 380px;
+- промежуточные размеры.
+
+Особое внимание уделено отсутствию горизонтального overflow.
+
+### Animations
+
+В проекте реализованы:
+
+- плавное появление страницы;
+- последовательное появление карточек каталога;
+- анимация открытия модального окна;
+- анимация закрытия модального окна;
+- плавное появление и исчезновение modal overlay;
+- hover / focus transitions.
+
+На мобильных устройствах некоторые desktop-анимации отключаются или упрощаются для более быстрого взаимодействия.
 
 ---
 
-## 10. Part 2 — Functionality
+## 7. Accessibility
 
-- [ ] Burger menu
-- [ ] Slider / carousel
-- [ ] Category switching
-- [ ] Additional cards
-- [ ] Card modal
-- [ ] Card parameters
-- [ ] Dynamic modal information
-- [ ] No page reload for interactions
+В проекте используются:
+
+- семантические HTML-элементы;
+- корректная структура заголовков;
+- `alt` для изображений;
+- keyboard navigation;
+- `focus-visible`;
+- `aria-label`;
+- `role="dialog"`;
+- `aria-modal`;
+- возможность закрытия модального окна клавишей `Escape`.
 
 ---
 
-## 11. Development Strategy
+## 8. Testing
 
-Работа выполняется итеративно:
+Для проверки проекта используются:
+
+- Vitest;
+- ESLint;
+- production build;
+- ручная проверка responsive layout;
+- проверка Light / Dark Theme;
+- проверка навигации;
+- проверка интерактивных компонентов;
+- проверка модальных окон;
+- проверка отсутствия горизонтального overflow;
+- проверка браузерной консоли.
+
+---
+
+## 9. Development Workflow
+
+Разработка выполнялась итеративно:
 
 1. Project structure
 2. Content and data
 3. Base layout
 4. Responsive layout
 5. Theme system
-6. UI Kit components
-7. Part 1 functionality
-8. Part 2 functionality
-9. Testing
-10. Accessibility
-11. Final responsive check
-12. Deployment
-13. Cross-check preparation
+6. UI components
+7. Navigation
+8. Catalog functionality
+9. Modal functionality
+10. Animations
+11. Testing
+12. Accessibility
+13. Production build
+14. Deployment
 
-Не реализовывать будущую функциональность без необходимости.
+Основной принцип разработки:
 
-Сначала рабочая версия, затем улучшения.
+> Make it work → make it better.
 
----
-
-## 12. Testing
-
-Проверить:
-
-- функциональность;
-- responsive layout;
-- обе темы;
-- сохранение темы;
-- навигацию;
-- интерактивные компоненты;
-- модальные окна;
-- отсутствие горизонтального скролла;
-- консоль браузера;
-- тесты собственных компонентов.
+Сначала реализовывалась рабочая версия, затем добавлялись улучшения и визуальная полировка.
 
 ---
 
-## 13. Deployment
+## 10. Deployment
 
-После каждой завершённой части:
+Проект опубликован через **GitHub Pages**.
 
-- актуализировать deployment;
-- проверить production build;
-- добавить ссылку на deployment в соответствующий Pull Request.
+Production:
+
+https://peccopa.github.io/rsschool-landing-page/
+
+Перед deployment выполняется production build и проверяется итоговая версия приложения.
 
 ---
 
-## 14. RS School Workflow
+## 11. RS School Workflow
 
 Repository:
 
 `rsschool-landing-page`
 
-Branches:
+Основные branches:
 
 ```text
 main
@@ -350,38 +288,44 @@ main
 
 ### Part 1
 
-`landing-page` → `main`
+```text
+landing-page → main
+```
 
 ### Part 2
 
-`landing-page-part-2` → `landing-page`
+```text
+landing-page-part-2 → landing-page
+```
 
-Pull Requests не мержить.
+Pull Requests используются для проверки выполненной части задания.
 
-История коммитов должна отражать реальный процесс разработки.
+История коммитов отражает процесс разработки проекта.
 
 ---
 
-## 15. Final Checklist
+## 12. Final Result
 
-Перед сдачей проверить:
+Проект реализует:
 
-- [ ] Part 1 requirements
-- [ ] Part 2 requirements
-- [ ] Responsive 1440 / 768 / 380
-- [ ] Light / Dark
-- [ ] localStorage
-- [ ] Navigation
-- [ ] Slider
-- [ ] Categories
-- [ ] Cards
-- [ ] Show more / pagination
-- [ ] Modal
-- [ ] Card parameters
-- [ ] Accessibility
-- [ ] Browser console
-- [ ] Tests
-- [ ] Build
-- [ ] Deployment
-- [ ] Pull Request
-- [ ] Cross-check checklist
+- две страницы;
+- клиентскую навигацию;
+- responsive layout;
+- Light / Dark Theme;
+- `localStorage`;
+- slider;
+- категории;
+- фильтрацию;
+- карточки инструментов;
+- Show More;
+- modal;
+- параметры инструментов;
+- динамическую информацию;
+- animations;
+- mobile navigation;
+- accessibility;
+- tests;
+- production build;
+- deployment.
+
+Проект завершён в рамках поставленных требований Landing Page Part 1 и Part 2.
