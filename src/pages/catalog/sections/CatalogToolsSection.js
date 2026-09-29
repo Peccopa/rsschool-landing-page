@@ -42,15 +42,20 @@ export default class CatalogToolsSection extends ContainerComponent {
 
     const cards = new ContainerComponent({
       classes: styles['catalog-tools__list'],
-      children: visibleTools.map(
-        (tool) =>
-          new ToolCard({
-            tool,
-            onClick: (selectedTool) => {
-              this.openModal(selectedTool);
-            },
-          }),
-      ),
+      children: visibleTools.map((tool, index) => {
+        const card = new ToolCard({
+          tool,
+          onClick: (selectedTool) => {
+            this.openModal(selectedTool);
+          },
+        });
+
+        card.setStyle({
+          animationDelay: `${index * 0.07}s`,
+        });
+
+        return card;
+      }),
     });
 
     this.setChildren([cards]);

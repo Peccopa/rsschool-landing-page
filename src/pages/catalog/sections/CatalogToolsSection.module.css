@@ -15,38 +15,6 @@
   animation: card-appear 0.3s ease-out both;
 }
 
-.catalog-tools__list > *:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.catalog-tools__list > *:nth-child(2) {
-  animation-delay: 0.07s;
-}
-
-.catalog-tools__list > *:nth-child(3) {
-  animation-delay: 0.14s;
-}
-
-.catalog-tools__list > *:nth-child(4) {
-  animation-delay: 0.21s;
-}
-
-.catalog-tools__list > *:nth-child(5) {
-  animation-delay: 0.28s;
-}
-
-.catalog-tools__list > *:nth-child(6) {
-  animation-delay: 0.35s;
-}
-
-.catalog-tools__list > *:nth-child(7) {
-  animation-delay: 0.42s;
-}
-
-.catalog-tools__list > *:nth-child(8) {
-  animation-delay: 0.49s;
-}
-
 .catalog-tools__show-more {
   align-self: center;
   padding: 10px 24px;
